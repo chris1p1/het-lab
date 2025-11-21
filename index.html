@@ -7,246 +7,6 @@
 
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <style>
-    :root {
-      --bg: #020617;
-      --bg-soft: #0b1220;
-      --card: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56,189,248,0.1);
-      --text: #e5e7eb;
-      --text-soft: #9ca3af;
-      --border: #1f2937;
-      --danger: #f97373;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: baseline;
-      justify-content: space-between;
-    }
-
-    header h1 {
-      font-size: 1.2rem;
-      margin: 0;
-      letter-spacing: 0.03em;
-    }
-
-    header span {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-    }
-
-    .layout {
-      flex: 1;
-      display: grid;
-      grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
-      gap: 1rem;
-      padding: 1rem;
-    }
-
-    .card {
-      background: radial-gradient(circle at top left, #0f172a 0, #020617 55%);
-      border-radius: 1rem;
-      border: 1px solid var(--border);
-      padding: 1rem 1.1rem;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-    }
-
-    .card h2 {
-      margin: 0 0 0.75rem;
-      font-size: 1rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .chip {
-      display: inline-flex;
-      padding: 0.1rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      font-size: 0.7rem;
-      color: var(--text-soft);
-      gap: 0.25rem;
-      align-items: center;
-    }
-
-    .chip-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .device-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-    }
-
-    .device-row {
-      border-radius: 0.8rem;
-      padding: 0.55rem 0.7rem;
-      border: 1px solid rgba(31,41,55,0.9);
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 60%);
-      display: grid;
-      grid-template-columns: auto;
-      gap: 0.3rem;
-      font-size: 0.8rem;
-    }
-
-    .device-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .device-name {
-      font-weight: 600;
-    }
-
-    .device-meta {
-      display: flex;
-      gap: 0.4rem;
-      color: var(--text-soft);
-      font-size: 0.75rem;
-    }
-
-    .device-meta span {
-      white-space: nowrap;
-    }
-
-    .device-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      margin-top: 0.1rem;
-    }
-
-    .range-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .range-row label {
-      font-size: 0.75rem;
-      color: var(--text-soft);
-      min-width: 58px;
-    }
-
-    input[type="range"] {
-      flex: 1;
-      accent-color: var(--accent);
-    }
-
-    .time-label {
-      font-size: 0.75rem;
-      color: var(--text);
-      min-width: 46px;
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .toggle-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.25rem;
-      margin-top: 0.1rem;
-    }
-
-    .toggle-row label {
-      font-size: 0.75rem;
-      color: var(--text-soft);
-    }
-
-    .summary {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.75rem;
-    }
-
-    .summary-item {
-      padding: 0.35rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      font-size: 0.75rem;
-      color: var(--text-soft);
-    }
-
-    .summary-item span {
-      color: var(--accent);
-      font-variant-numeric: tabular-nums;
-      font-weight: 600;
-      margin-left: 0.35rem;
-    }
-
-    .pv-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-      padding-top: 0.4rem;
-      border-top: 1px dashed rgba(148,163,184,0.35);
-      font-size: 0.8rem;
-    }
-
-    .pv-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .pv-row label {
-      min-width: 82px;
-      color: var(--text-soft);
-    }
-
-    .pv-row input[type="range"] {
-      flex: 1;
-    }
-
-    .pv-row span {
-      min-width: 52px;
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-    }
-
-    canvas {
-      max-height: 450px;
-    }
-
-    @media (max-width: 880px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
 <header>
@@ -261,7 +21,7 @@
 </header>
 
 <main class="layout">
-  <!-- Linke Seite: Einstellungen -->
+  <!-- Linke Seite: Einstellungen / auf Mobile unten -->
   <section class="card">
     <h2>Verbraucher & PV</h2>
 
@@ -294,10 +54,29 @@
 
   </section>
 
-  <!-- Rechte Seite: Chart + Summary -->
+  <!-- Rechte Seite: Chart + Summary / auf Mobile oben -->
   <section class="card">
     <h2>Leistungsprofil & Netzlast</h2>
-    <canvas id="powerChart"></canvas>
+
+    <!-- NEU: Tarif-Legende -->
+    <div class="tariff-legend">
+      <div class="tariff-pill">
+        <span class="tariff-dot night"></span>
+        <span>Nachtstrom · 0,18 €/kWh</span>
+      </div>
+      <div class="tariff-pill">
+        <span class="tariff-dot daylow"></span>
+        <span>PV-Fenster · 0,15 €/kWh</span>
+      </div>
+      <div class="tariff-pill">
+        <span class="tariff-dot normal"></span>
+        <span>Standardtarif · 0,28 €/kWh</span>
+      </div>
+    </div>
+
+    <div style="position:relative; height: min(55vh, 420px);">
+      <canvas id="powerChart"></canvas>
+    </div>
 
     <div class="summary">
       <div class="summary-item">
@@ -309,7 +88,6 @@
       <div class="summary-item">
         PV-Erzeugung: <span id="pvKwh">0.00</span> kWh
       </div>
-      <!-- NEU: Gesamtkosten -->
       <div class="summary-item">
         Stromkosten gesamt: <span id="totalCost">0.00</span> €
       </div>
@@ -506,10 +284,16 @@
 
       row.innerHTML = `
         <div class="device-header">
-          <div class="device-name">${dev.name}</div>
-          <div class="device-meta">
-            <span id="meta_${dev.id}">${durH} h · ${energyKwh} kWh (${initialProfile.label})</span>
+          <div class="device-header-main">
+            <div class="device-name">${dev.name}</div>
+            <div class="device-meta">
+              <span id="meta_${dev.id}">${durH} h · ${energyKwh} kWh (${initialProfile.label})</span>
+            </div>
           </div>
+          <label class="device-enable">
+            <input id="enable_${dev.id}" type="checkbox" checked>
+            <span>aktiv</span>
+          </label>
         </div>
         <div class="device-controls">
           <div class="range-row">
@@ -526,10 +310,6 @@
               ).join("")}
             </select>
           </div>
-          <div class="toggle-row">
-            <label for="enable_${dev.id}">Gerät berücksichtigen</label>
-            <input id="enable_${dev.id}" type="checkbox" checked>
-          </div>
         </div>
       `;
     } else if (isEv) {
@@ -538,10 +318,16 @@
 
       row.innerHTML = `
         <div class="device-header">
-          <div class="device-name">${dev.name}</div>
-          <div class="device-meta">
-            <span id="meta_${dev.id}">${state.powerKw.toFixed(1)} kW · ${state.energyKwh.toFixed(1)} kWh · ${durH} h</span>
+          <div class="device-header-main">
+            <div class="device-name">${dev.name}</div>
+            <div class="device-meta">
+              <span id="meta_${dev.id}">${state.powerKw.toFixed(1)} kW · ${state.energyKwh.toFixed(1)} kWh · ${durH} h</span>
+            </div>
           </div>
+          <label class="device-enable">
+            <input id="enable_${dev.id}" type="checkbox" checked>
+            <span>aktiv</span>
+          </label>
         </div>
         <div class="device-controls">
           <div class="range-row">
@@ -563,21 +349,23 @@
             <input id="energy_${dev.id}" type="number" min="1" max="80" step="1" value="${state.energyKwh}">
             <div class="time-label" id="duration_${dev.id}">${durH} h</div>
           </div>
-          <div class="toggle-row">
-            <label for="enable_${dev.id}">Gerät berücksichtigen</label>
-            <input id="enable_${dev.id}" type="checkbox" checked>
-          </div>
         </div>
       `;
     } else {
       // Normale Rechteck-Geräte
       row.innerHTML = `
         <div class="device-header">
-          <div class="device-name">${dev.name}</div>
-          <div class="device-meta">
-            <span>${dev.power.toFixed(1)} kW</span>
-            <span>· ${(dev.durationSlots * slotHours).toFixed(2)} h</span>
+          <div class="device-header-main">
+            <div class="device-name">${dev.name}</div>
+            <div class="device-meta">
+              <span>${dev.power.toFixed(1)} kW</span>
+              <span>· ${(dev.durationSlots * slotHours).toFixed(2)} h</span>
+            </div>
           </div>
+          <label class="device-enable">
+            <input id="enable_${dev.id}" type="checkbox" checked>
+            <span>aktiv</span>
+          </label>
         </div>
         <div class="device-controls">
           <div class="range-row">
@@ -585,10 +373,6 @@
             <input id="start_${dev.id}" type="range" min="0" max="${maxStart}"
                    step="1" value="${dev.defaultStart}">
             <div class="time-label" id="label_${dev.id}">${slotToTimeLabel(dev.defaultStart)}</div>
-          </div>
-          <div class="toggle-row">
-            <label for="enable_${dev.id}">Gerät berücksichtigen</label>
-            <input id="enable_${dev.id}" type="checkbox" checked>
           </div>
         </div>
       `;
@@ -600,6 +384,14 @@
     const startLabel = row.querySelector(`#label_${dev.id}`);
     const enableInput = row.querySelector(`#enable_${dev.id}`);
 
+    function updateCollapsedState() {
+      if (state.enabled) {
+        row.classList.remove("collapsed");
+      } else {
+        row.classList.add("collapsed");
+      }
+    }
+
     startInput.addEventListener("input", () => {
       state.start = parseInt(startInput.value, 10);
       startLabel.textContent = slotToTimeLabel(state.start);
@@ -608,6 +400,7 @@
 
     enableInput.addEventListener("change", () => {
       state.enabled = enableInput.checked;
+      updateCollapsedState();
       recompute();
     });
 
@@ -675,6 +468,9 @@
       // Initiale Ableitungen
       updateEvDerived();
     }
+
+    // Initial Collapsed-State setzen
+    updateCollapsedState();
   });
 
   // PV & Grundlast Slider
@@ -757,7 +553,7 @@
     return "normal";
   }
 
-  // *** Chart-Plugin für Hintergrundfärbung + Preis-Labels ***
+  // *** Chart-Plugin NUR für Hintergrundfärbung (kein Text mehr) ***
   const priceBackgroundPlugin = {
     id: "priceBackground",
     beforeDraw(chart, args, pluginOptions) {
@@ -768,7 +564,7 @@
 
       ctx.save();
 
-      // 1) Hintergründe zeichnen
+      // Hintergründe zeichnen (keine Texte)
       zones.forEach(zone => {
         if (!zone.color) return; // normal-Zone ohne Farbe
         const xStart = xScale.getPixelForValue(zone.start);
@@ -780,42 +576,6 @@
           xEnd - xStart,
           chartArea.bottom - chartArea.top
         );
-      });
-
-      // 2) Preis-Text pro Zone zeichnen
-      ctx.font = "11px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "top";
-
-      zones.forEach(zone => {
-        const xStart = xScale.getPixelForValue(zone.start);
-        const xEnd = xScale.getPixelForValue(zone.end);
-        const width = xEnd - xStart;
-        if (width < 20) return; // zu schmal, sonst wird's unleserlich
-        const xCenter = xStart + width / 2;
-
-        let price;
-        let suffix;
-        switch (zone.type) {
-          case "night":
-            price = PRICE_NIGHT;
-            suffix = "· Nachtstrom";
-            ctx.fillStyle = "#bfdbfe"; // hellblau
-            break;
-          case "dayLow":
-            price = PRICE_DAY_LOW;
-            suffix = "· Tag (PV ≥ 70%)";
-            ctx.fillStyle = "#bbf7d0"; // hellgrün
-            break;
-          default:
-            price = PRICE_NORMAL;
-            suffix = "· Normaltarif";
-            ctx.fillStyle = "#e5e7eb"; // hellgrau
-            break;
-        }
-
-        const label = `${price.toFixed(2)} €/kWh ${suffix}`;
-        ctx.fillText(label, xCenter, chartArea.top + 4);
       });
 
       ctx.restore();
@@ -914,9 +674,9 @@
   const importKwhEl = document.getElementById("importKwh");
   const maxNetKwEl = document.getElementById("maxNetKw");
   const pvKwhEl = document.getElementById("pvKwh");
-  const totalCostEl = document.getElementById("totalCost"); // NEU
+  const totalCostEl = document.getElementById("totalCost");
 
-  // *** Zonen für Chart-Hintergrund + Labels berechnen ***
+  // *** Zonen für Chart-Hintergrund berechnen ***
   function buildPriceZonesForChart() {
     const zones = [];
     const zoneColors = {
@@ -1003,7 +763,7 @@
     powerChart.data.datasets[1].data = total;
     powerChart.data.datasets[2].data = net;
 
-    // Zonen-Hintergrund + Labels aktualisieren
+    // Zonen-Hintergrund aktualisieren
     powerChart.options.plugins.priceBackground.zones = buildPriceZonesForChart();
 
     powerChart.update();
