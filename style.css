@@ -332,3 +332,127 @@
         max-height: 320px;
       }
     }
+
+
+
+
+
+
+/* Feedback-Formular */
+.feedback-card {
+  margin-top: 1rem;
+}
+
+.feedback-card h2 {
+  margin-bottom: 0.75rem;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  font-size: 0.85rem;
+}
+
+.feedback-block {
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148,163,184,0.35);
+  background: radial-gradient(circle at top left, rgba(15,23,42,0.9), rgba(15,23,42,0.3));
+}
+
+.feedback-question-title {
+  margin-bottom: 0.45rem;
+  font-weight: 500;
+}
+
+.feedback-help {
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  margin-top: 0.2rem;
+}
+
+.feedback-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.9rem;
+}
+
+.feedback-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.feedback-options input[type="radio"],
+.feedback-options input[type="checkbox"] {
+  accent-color: var(--accent);
+}
+
+.feedback-inline-input {
+  background: rgba(15,23,42,0.8);
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.5rem;
+  color: var(--text);
+  font-size: 0.8rem;
+  min-width: 130px;
+}
+
+.feedback-textarea {
+  width: 100%;
+  min-height: 70px;
+  resize: vertical;
+  background: rgba(15,23,42,0.8);
+  border-radius: 0.6rem;
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.7rem;
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+.feedback-submit-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+}
+
+.feedback-email {
+  flex: 1 1 180px;
+}
+
+.feedback-email input {
+  width: 100%;
+  background: rgba(15,23,42,0.8);
+  border-radius: 0.6rem;
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.6rem;
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+.feedback-submit-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: #0b1120;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(56,189,248,0.35);
+  white-space: nowrap;
+}
+
+.feedback-submit-btn:hover {
+  filter: brightness(1.05);
+}
+
+
+
+
