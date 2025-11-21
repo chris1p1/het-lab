@@ -474,3 +474,325 @@
   height: 600px;
   border: none;
 }
+/* ============================= */
+/* Landingpage-spezifische Styles */
+/* ============================= */
+
+/* Zentrierter Inhalt */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Eigener Header für Landing (kollidiert nicht mit "header" der App,
+   weil du in index.html <header class="site-header"> nutzt) */
+.site-header {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(2, 6, 23, 0.9);
+  backdrop-filter: blur(18px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, var(--accent), transparent 60%);
+}
+
+.logo-text {
+  font-size: 0.95rem;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.main-nav a {
+  color: var(--text-soft);
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+}
+
+/* Buttons für Landing */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #0b1120;
+  font-weight: 600;
+  box-shadow: 0 16px 40px rgba(56,189,248,0.35);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.06);
+}
+
+.btn-secondary,
+.btn-ghost {
+  background: rgba(15,23,42,0.9);
+  color: var(--text-soft);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover,
+.btn-ghost:hover {
+  color: var(--accent);
+  border-color: rgba(56,189,248,0.6);
+}
+
+/* Hero-Bereich oben */
+.hero {
+  padding: 2.5rem 0 2rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.hero-text h1 {
+  font-size: 1.7rem;
+  margin: 0 0 0.75rem;
+}
+
+.hero-subtitle {
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.hero-meta {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+/* Rechte Hero-Card nutzt denselben Card-Look wie die App */
+.hero-highlight .hero-card {
+  background: radial-gradient(circle at top left, #0f172a 0, #020617 55%);
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  padding: 1rem 1.1rem;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+  font-size: 0.85rem;
+}
+
+.hero-card h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+.hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: var(--text-soft);
+  font-size: 0.8rem;
+}
+
+.hero-link {
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Generische Sektionen */
+.section {
+  padding: 2rem 0;
+}
+
+.section-alt {
+  background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+}
+
+.section h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+}
+
+.section-intro {
+  margin: 0 0 1.2rem;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+/* Grids für Steps & Usecases */
+.steps-grid,
+.usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.step-card,
+.usecase-card {
+  background: radial-gradient(circle at top left, #020617 0, #020617 55%);
+  border-radius: 0.9rem;
+  border: 1px solid var(--border);
+  padding: 0.9rem;
+  font-size: 0.85rem;
+}
+
+.step-number {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+/* FAQ / Details-Blöcke (für UX + Robots) */
+.faq-list details,
+.details-grid details {
+  margin-bottom: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(31,41,55,0.9);
+  background: radial-gradient(circle at top left, rgba(15,23,42,1), rgba(15,23,42,0.9));
+  font-size: 0.85rem;
+}
+
+.details-grid {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+details summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* SEO-Bereich unten – Text für Robots, aber optisch dezent */
+.seo-section {
+  padding-bottom: 3rem;
+}
+
+.seo-text h2,
+.seo-text h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.seo-text p {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+/* Demo-Section (nutzt vorhandene .demo-frame-wrapper aus deiner CSS) */
+.demo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+/* Footer für Landing */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1rem 0 1.2rem;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--text-soft);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* Mobile-Anpassungen für Landing */
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .main-nav {
+    gap: 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .demo-frame-wrapper iframe {
+    height: 420px;
+  }
+}
