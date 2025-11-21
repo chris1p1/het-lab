@@ -773,35 +773,156 @@
   updatePvShape();
   recompute();
 </script>
-<section class="card" style="margin-top:2rem;">
-  <h2>Feedback</h2>
-  <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST" style="display:flex;flex-direction:column;gap:0.75rem;">
-    <label>
-      Wie hilfreich findest du das Tool?
-      <select name="rating">
-        <option value="5">⭐⭐⭐⭐⭐ – Sehr hilfreich</option>
-        <option value="4">⭐⭐⭐⭐ – Gut</option>
-        <option value="3">⭐⭐⭐ – Ok</option>
-        <option value="2">⭐⭐ – Mäßig</option>
-        <option value="1">⭐ – Nicht hilfreich</option>
-      </select>
-    </label>
 
-    <label>
-      Was können wir verbessern?
-      <textarea name="feedback" rows="4" placeholder="Dein Feedback..." required></textarea>
-    </label>
 
-    <label>
-      (Optional) E-Mail für Rückfragen
-      <input type="email" name="email" placeholder="dein@mail.de">
-    </label>
 
-    <button type="submit" style="padding:0.6rem;border-radius:0.5rem;background:#38bdf8;color:white;border:none;">
-      Feedback senden
-    </button>
+<section class="card feedback-card">
+  <h2>Dein Feedback zur Demo</h2>
+
+  <form class="feedback-form"
+        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        method="POST">
+
+    <!-- 1) Wie nützlich findest du die Demo? -->
+    <div class="feedback-block">
+      <div class="feedback-question-title">Wie nützlich findest du die Demo?</div>
+      <div class="feedback-options">
+        <label>
+          <input type="radio" name="nutzlichkeit" value="1">
+          1 – Gar nicht
+        </label>
+        <label>
+          <input type="radio" name="nutzlichkeit" value="2">
+          2
+        </label>
+        <label>
+          <input type="radio" name="nutzlichkeit" value="3" checked>
+          3 – Mittel
+        </label>
+        <label>
+          <input type="radio" name="nutzlichkeit" value="4">
+          4
+        </label>
+        <label>
+          <input type="radio" name="nutzlichkeit" value="5">
+          5 – Sehr hilfreich
+        </label>
+      </div>
+    </div>
+
+    <!-- 2) Was fehlt dir? -->
+    <div class="feedback-block">
+      <div class="feedback-question-title">Was fehlt dir am meisten?</div>
+      <div class="feedback-options">
+        <label>
+          <input type="checkbox" name="fehlt[]" value="Mehr Geräte / Profile">
+          Mehr Geräte / Profile
+        </label>
+        <label>
+          <input type="checkbox" name="fehlt[]" value="Preise & Tarife genauer">
+          Preise & Tarife genauer
+        </label>
+        <label>
+          <input type="checkbox" name="fehlt[]" value="Speicher / Batterie">
+          Speicher / Batterie
+        </label>
+        <label>
+          <input type="checkbox" name="fehlt[]" value="Export / Screenshot">
+          Export / Screenshot
+        </label>
+        <label>
+          <input type="checkbox" name="fehlt[]" value="Bessere Auswertung">
+          Bessere Auswertung
+        </label>
+        <label>
+          <input type="checkbox" name="fehlt[]" value="Sonstiges">
+          Sonstiges
+          <input class="feedback-inline-input"
+                 type="text"
+                 name="fehlt_sonstiges"
+                 placeholder="kurz beschreiben (optional)">
+        </label>
+      </div>
+      <div class="feedback-help">
+        Du kannst einfach anhaken – Text ist optional.
+      </div>
+    </div>
+
+    <!-- 3) Würdest du das nutzen? -->
+    <div class="feedback-block">
+      <div class="feedback-question-title">Würdest du das Tool nutzen?</div>
+      <div class="feedback-options">
+        <label>
+          <input type="radio" name="nutzen" value="Ja" checked>
+          Ja, wahrscheinlich
+        </label>
+        <label>
+          <input type="radio" name="nutzen" value="Vielleicht">
+          Vielleicht, wenn noch mehr Funktionen da sind
+        </label>
+        <label>
+          <input type="radio" name="nutzen" value="Nein">
+          Eher nicht
+        </label>
+      </div>
+    </div>
+
+    <!-- 4) Zahlungsbereitschaft -->
+    <div class="feedback-block">
+      <div class="feedback-question-title">
+        Was würdest du dafür zahlen, wenn das Tool auf deine Bedürfnisse angepasst ist?
+      </div>
+      <div class="feedback-options">
+        <label>
+          <input type="radio" name="preis" value="0">
+          0 € – Sollte kostenlos sein
+        </label>
+        <label>
+          <input type="radio" name="preis" value="5-10">
+          Einmalig 5–10 €
+        </label>
+        <label>
+          <input type="radio" name="preis" value="10-20">
+          Einmalig 10–20 €
+        </label>
+        <label>
+          <input type="radio" name="preis" value="abo-2-5">
+          Abo 2–5 €/Monat
+        </label>
+        <label>
+          <input type="radio" name="preis" value="sonstiges">
+          Sonstiges
+          <input class="feedback-inline-input"
+                 type="text"
+                 name="preis_sonstiges"
+                 placeholder="kurz (optional)">
+        </label>
+      </div>
+    </div>
+
+    <!-- Optional: kurzer Freitext -->
+    <div class="feedback-block">
+      <div class="feedback-question-title">Noch ein Gedanke dazu? (optional)</div>
+      <textarea class="feedback-textarea"
+                name="freitext"
+                placeholder="Was ist dir positiv oder negativ aufgefallen?"></textarea>
+    </div>
+
+    <!-- Email + Submit -->
+    <div class="feedback-submit-row">
+      <div class="feedback-email">
+        <div class="feedback-help">Optional: E-Mail, falls du Rückfragen zulässt</div>
+        <input type="email" name="email" placeholder="dein@mail.de (optional)">
+      </div>
+      <button type="submit" class="feedback-submit-btn">
+        Feedback senden
+      </button>
+    </div>
   </form>
 </section>
+
+
+  
 
 <footer style="padding: 0.75rem 1.5rem; font-size: 0.8rem; color: #9ca3af; border-top: 1px solid #1f2937; text-align: right;">
   <a href="impressum.html" style="color: #9ca3af; text-decoration: none;">Impressum</a>
