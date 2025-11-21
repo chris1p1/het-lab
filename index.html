@@ -773,6 +773,36 @@
   updatePvShape();
   recompute();
 </script>
+<section class="card" style="margin-top:2rem;">
+  <h2>Feedback</h2>
+  <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST" style="display:flex;flex-direction:column;gap:0.75rem;">
+    <label>
+      Wie hilfreich findest du das Tool?
+      <select name="rating">
+        <option value="5">⭐⭐⭐⭐⭐ – Sehr hilfreich</option>
+        <option value="4">⭐⭐⭐⭐ – Gut</option>
+        <option value="3">⭐⭐⭐ – Ok</option>
+        <option value="2">⭐⭐ – Mäßig</option>
+        <option value="1">⭐ – Nicht hilfreich</option>
+      </select>
+    </label>
+
+    <label>
+      Was können wir verbessern?
+      <textarea name="feedback" rows="4" placeholder="Dein Feedback..." required></textarea>
+    </label>
+
+    <label>
+      (Optional) E-Mail für Rückfragen
+      <input type="email" name="email" placeholder="dein@mail.de">
+    </label>
+
+    <button type="submit" style="padding:0.6rem;border-radius:0.5rem;background:#38bdf8;color:white;border:none;">
+      Feedback senden
+    </button>
+  </form>
+</section>
+
 <footer style="padding: 0.75rem 1.5rem; font-size: 0.8rem; color: #9ca3af; border-top: 1px solid #1f2937; text-align: right;">
   <a href="impressum.html" style="color: #9ca3af; text-decoration: none;">Impressum</a>
   &nbsp;|&nbsp;
