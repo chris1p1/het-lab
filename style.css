@@ -454,5 +454,10 @@
 }
 
 
-
+.helper-text {
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  margin: 0.2rem 0 0.6rem;
+  line-height: 1.4;
+}
 
